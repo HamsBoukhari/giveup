@@ -101,6 +101,7 @@ if (trade_msg and sgw_op) and button:
         
         # Unparse the dictionary back to XML and correct any misrepresentations
         modified_ccp_message = xmltodict.unparse(output_sequence_dict, pretty=False)
+        modified_ccp_message = modified_ccp_message.replace("&amp;gt;", "&gt;") # Fix escape characters
         
         # If the XML message starts with an XML declaration, remove it
         if modified_ccp_message.startswith("<?xml"):
